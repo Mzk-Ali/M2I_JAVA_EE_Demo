@@ -1,0 +1,39 @@
+<html>
+<body>
+<!-- 	Hello !
+	<ul>
+		<li th:each="user: ${users}">
+			<a th:href="@{/front/user/{username}(username=${user.username})}">
+				<span th:text="${user.username}" />
+			</a>
+		</li>
+	</ul>
+
+	<a th:href="@{/front/user}"> Créer un nouvel utilisateur</a>
+	 -->
+	<nav>
+		<div th:if="${session.user == null}">
+			<a th:href="@{/front/user}">Créer un nouvel utilisateur</a>
+			<a th:href="@{/front/user/login}">Se connecter</a>
+		</div>
+		
+		<div th:if="${session.user != null}">
+			<a th:href="@{/front/user/logout}">Se déconnecter</a>
+		</div>
+	</nav>
+	<span th:if="${session.user != null}">
+    	Hello <span th:text="${session.user.username}">Utilisateur</span> !
+    </span>
+    <span th:if="${session.user == null}">
+    	Bienvenue sur mon Site Web
+    </span>
+	<ul>
+		<li th:each="user: ${users}">
+			<a th:href="@{/front/user/{username}(username=${user.username})}">
+				<span th:text="${user.username}" />
+			</a>
+		</li>
+	</ul>
+	
+</body>
+</html>

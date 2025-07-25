@@ -1,0 +1,18 @@
+<html>
+	<body>
+		Page de connexion
+		<form method="post" th:action="@{/front/user/login}" th:object="${loginUser}">
+			<div>
+				<label for="username">Username : </label>
+				<input type="text" name="username" th:field="*{username}" />
+				<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" />
+			</div>
+			<div>
+				<label for="password">Password : </label>
+				<input type="password" name="password" th:field="*{password}" />
+				<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" />
+			</div>
+			<input type="submit" value="Connexion" />
+		</form>
+	</body>
+</html>
